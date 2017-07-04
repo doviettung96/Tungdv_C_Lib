@@ -21,7 +21,16 @@ void insertionSort(int array[], int length);
 void bubbleSort(int array[], int length);
 /**
  * [quickSort description]     sort an array of numbers using quick sort
- * @param array  [description] input array of numbers
- * @param length [description] number of elements in the input array
+ * @param array [description]  input array of numbers 
+ * @param low   [description]  lowest index in an array 
+ * @param high  [description]  highest index in an array
  */
-void quickSort(int array[], int length);
+void quickSort(int array[], int low, int high);
+/**
+ * [partition description]      
+ * @param  array [description] 
+ * @param  low   [description]
+ * @param  high  [description]
+ * @return       [description]
+ */
+int partition(int array[], int low, int high);

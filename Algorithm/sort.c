@@ -39,6 +39,23 @@ void bubbleSort(int array[], int length){
 	}
 }
 
-void quickSort(int array[], int length){
-	
+void quickSort(int array[], int low, int high){
+	int pivot = partition(array, low, high);
+	// if(pivot != low)
+		// quickSort(array, low, pivot);
+	// if(pivot != high - 1)
+	// 	quickSort(array, pivot + 1, high);
+}
+
+int partition(int array[], int low, int high){
+	int pivot = low;
+	for(int i = low; i <= high; ++i){
+		if(array[i] < array[pivot]){
+			for(int j = i - 1; j >= low; --j){
+				swap(&array[j], &array[j + 1]);
+			}
+			pivot++;
+		}
+	}
+	return pivot;
 }
