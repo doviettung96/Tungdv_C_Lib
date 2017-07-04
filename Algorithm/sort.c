@@ -1,10 +1,10 @@
 #include <stdio.h>
-#include <../Utility/utility.h>
+#include "sort.h"
 
 void selectionSort(int array[], int length){
-	int min;
-	for(int elementIndex; elementIndex < length; ++elementIndex){
-		min = findMinElement(array, length - elementIndex);
-		swap(&array[elementIndex], &min);
+	int minIndex;
+	for(int elementIndex = 0; elementIndex < length; ++elementIndex){
+		minIndex = findMinElement(array, elementIndex, length);
+		swap(&array[elementIndex], &array[minIndex]);
 	}
 }
