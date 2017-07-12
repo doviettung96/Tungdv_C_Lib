@@ -1,9 +1,9 @@
 #declare the variable
 CC=gcc
 FLAGS =-g -Wall
-INCLUDES = -I./Header
+INCLUDES = -I../Header
 # define any directories containing header files other than /usr/include
-LIBS = -L./Implementation
+LIBS = -L../Implementation
 #define any directories containing implementation of the files in INCLUDES
 #../../lib means up 2 level then search for /lib
 LFLAGS= -lalgorithm
