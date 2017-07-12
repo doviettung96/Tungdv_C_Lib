@@ -1,6 +1,6 @@
 #include "node.h"
 
-typedef struct sllist{
+typedef struct{
 	Node *root; // the first node of the list 
 	Node *last; // the last node of the list
 	int length;

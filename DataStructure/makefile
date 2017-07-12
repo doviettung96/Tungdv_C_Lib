@@ -4,7 +4,7 @@ OUTPUTDIR = ../Implementation/
 
 all: libdatastructure.a copy_header
 
-OBJS = node.o sllist.o
+OBJS = node.o sllist.o stack.o
 
 libdatastructure.a: $(OBJS)
 	ar ru $(OUTPUTDIR)libdatastructure.a $(OBJS)

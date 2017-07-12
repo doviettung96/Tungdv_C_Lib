@@ -9,9 +9,9 @@ LIBS = -L../Implementation
 LFLAGS= -ldatastructure
 #to run all the .a file
 CFLAGS=-c $(FLAG)
-SRCS=test.c
+SRCS=test_stack.c
 OBJS= $(SRCS:.c=.o)
-EXECUTABLE=test
+EXECUTABLE=test_stack
 
 
 #  -g    adds debugging information to the executable file
