@@ -19,12 +19,12 @@ void push(Stack *s, int value){
 }
 
 Node* pop(Stack *s){
-	Node *top = s->top;
 	int returnValue;
 	if(isEmpty(*s)){
-		printf("Stack empty\n");
+		printf("Stack is empty\n");
 		return NULL;
 	}else{
+		Node *top = s->top;
 		returnValue = s->top->value;
 		s->top = top->next;
 		free(top);
@@ -33,10 +33,10 @@ Node* pop(Stack *s){
 }
 
 extern Node* getTop(Stack s){
-	if(isEmpty(s))
-		return NULL;
-	else
-		return s.top;
+	if(isEmpty(s)){
+		printf("Stack is empty\n");
+	}
+	return s.top;
 }
 
 int isEmpty(Stack s){

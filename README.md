@@ -12,7 +12,7 @@ Language: C
 
 ## For data structure
 Do the same but instead of Algorithm, jump into DataStructure folder and type "make", 
-then jump to TestData type "make". Finally type "./test_stack"
+then jump to TestData/List (or Stack or Queue) type "make". Finally type "./test"
 
 # Helpful information
 By typing make, you will run the default command in "makefile". 
