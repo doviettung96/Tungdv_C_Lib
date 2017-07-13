@@ -40,5 +40,5 @@ p = &a;
 - Pass pointer to a function, inside that function, change address of the pointer, after function finished, nothing is changed. To change address of pointer passed to a function, use pointer to pointer ``**``.
 
 ## NULL pointer is NOT the same as uninitialized pointer, AVOID uninitialized pointer
-- An uninitialized pointer will point to a random location: like 0x7ffe56f3d930, sometimes it = NULL
-- A NULL pointer will exactly point to location with the name: (nil).
+- An ``Uninitialized pointer`` will point to a random location: like ``0x7ffe56f3d930``, sometimes it = ``NULL``
+- A ``NULL pointer`` will exactly point to location with the name: ``(nil)``.
