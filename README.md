@@ -20,3 +20,9 @@ For library, ex: Algorithm, make will build a library *.a,
 copy to Implementation and copy the header files to Header.
 In the root directory, "make" will compile test.c with all including library 
 into an executable file test.
+
+# Pointer
+Pointer is address, it point to address of 1 variable
+Only use *p = 10 or *p = a when *p = (int *)malloc(sizeof(int));
+or you could just: p = &a;
+Otherwise, error will occur (segmentation fault- core dumpted).
