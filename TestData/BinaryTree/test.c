@@ -16,5 +16,5 @@ void main(){
 	printf("\n");
 	postOrder(t, displayTNode);
 	printf("\n");
-	freeTree(&t);
+	freeTree(t);
 }

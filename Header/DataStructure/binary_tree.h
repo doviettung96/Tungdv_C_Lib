@@ -23,4 +23,5 @@ void displayTNode(TNode *t);
 void preOrder(BinTree t, void (*function)(TNode *));
 void inOrder(BinTree t, void (*function)(TNode *));
 void postOrder(BinTree t, void (*function)(TNode *));
-void freeTree(BinTree * t);
+void freeTree(BinTree t);
+

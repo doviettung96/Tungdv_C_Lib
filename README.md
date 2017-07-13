@@ -25,12 +25,18 @@ into an executable file test.
 
 ## Warning 
 - Pointer is address, it point to address of 1 variable
-- Only use *p = 10 or *p = a when *p = (int *)malloc(sizeof(int));
-or you could just: p = &a;
+- Only assign value to the value of pointer (*p) after allocation 
+``bash
+*p = (int *)malloc(sizeof(int));
+``
+or you could just: 
+``bash
+p = &a;
+``
 - Otherwise, error will occur (segmentation fault- core dumpted).
 
 ## Pointer and value
 - Pass pointer to a function, inside that function, change the value, after function finish, value changed.
 - Pass pointer to a function, inside that function, change address of the pointer, after function finish, nothing changed. To change address of pointer passed to a function, use pointer to pointer (**).
 
-*** NULL pointer != uninitialized pointer
+*** NULL pointer == uninitialized pointer

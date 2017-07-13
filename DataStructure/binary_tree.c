@@ -133,11 +133,11 @@ void postOrder(BinTree t, void (*function)(TNode *)) {
 	}
 }
 
-void freeTree(BinTree * t) {
-	if (isEmpty(*t)) {
+void freeTree(BinTree t) {
+	if (isEmpty(t)) {
 		return;
 	}
-	freeTree(&(*t)->left);
-	freeTree(&(*t)->right);
-	free(*t);
+	freeTree(t->left);
+	freeTree(t->right);
+	free(t);
 }
