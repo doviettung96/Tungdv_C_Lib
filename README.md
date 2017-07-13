@@ -37,6 +37,6 @@ p = &a;
 
 ## Pointer and value
 - Pass pointer to a function, inside that function, change the value, after function finish, value changed.
-- Pass pointer to a function, inside that function, change address of the pointer, after function finish, nothing changed. To change address of pointer passed to a function, use pointer to pointer (**).
+- Pass pointer to a function, inside that function, change address of the pointer, after function finish, nothing changed. To change address of pointer passed to a function, use pointer to pointer ``**``.
 
 ## NULL pointer is the same as uninitialized pointer, can not be value-assigned
