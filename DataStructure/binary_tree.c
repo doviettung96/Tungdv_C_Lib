@@ -15,7 +15,7 @@ TNode* initTNode(int value) {
 }
 
 int isEmpty(BinTree t) {
-	return t == NULL;
+	return !t;
 }
 
 int isLeaf(TNode* t) {
