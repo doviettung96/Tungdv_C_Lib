@@ -1,4 +1,3 @@
-
 typedef struct TNode {
 	int value;
 	struct TNode* left;
