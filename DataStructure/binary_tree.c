@@ -2,10 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-BinTree initTree() {
-	return NULL;
-}
-
 TNode* initTNode(int value) {
 	TNode *t = (TNode *)malloc(sizeof(TNode));
 	t->value = value;
@@ -14,7 +10,7 @@ TNode* initTNode(int value) {
 	return t;
 }
 
-int isEmpty(BinTree t) {
+int isEmpty(TNode* t) {
 	return !t;
 }
 
@@ -36,7 +32,7 @@ TNode* getRightChild(TNode *t) {
 	return t->right;
 }
 
-void addToLeftMost(BinTree *t, int value) {
+void addToLeftMost(TNode** t, int value) {
 	TNode *newNode = initTNode(value);
 	if (isEmpty(*t)) {
 		*t = newNode;
@@ -49,7 +45,7 @@ void addToLeftMost(BinTree *t, int value) {
 	}
 }
 
-void addToRightMost(BinTree *t, int value) {
+void addToRightMost(TNode** t, int value) {
 	TNode *newNode = initTNode(value);
 	if (isEmpty(*t)) {
 		*t = newNode;
@@ -63,14 +59,14 @@ void addToRightMost(BinTree *t, int value) {
 }
 
 
-int countNodes(BinTree t) {
+int countNodes(TNode* t) {
 	if (isEmpty(t))
 		return 0;
 
 	return 1 + countNodes(t->left) + countNodes(t->right);
 }
 
-int countLeaves(BinTree t) {
+int countLeaves(TNode* t) {
 	if (isEmpty(t))
 		return 0;
 	if (isLeaf(t))
@@ -82,7 +78,7 @@ int countLeaves(BinTree t) {
 
 // number of edges on the longest path from the node to a leaf
 // also height of a tree = height of root node
-int height(BinTree node) {
+int height(TNode* node) {
 	if (isEmpty(node)) {
 		return 0;
 	}
@@ -94,7 +90,7 @@ int height(BinTree node) {
 
 // number of edges from the given node to root
 // there is no depth for a tree
-int depth(BinTree t, TNode *node) {
+int depth(TNode* t, TNode *node) {
 	int currentDepth = 0;
 	if (isEmpty(t) || node == NULL)
 		return 0;
@@ -109,7 +105,7 @@ void displayTNode(TNode *t) {
 	printf("%d ", t->value);
 }
 
-void preOrder(BinTree t, void (*function)(TNode *)) {
+void preOrder(TNode* t, void (*function)(TNode *)) {
 	if (!isEmpty(t)) {
 		function(t);
 		preOrder(t->left, function);
@@ -117,7 +113,7 @@ void preOrder(BinTree t, void (*function)(TNode *)) {
 	}
 }
 
-void inOrder(BinTree t, void (*function)(TNode *)) {
+void inOrder(TNode* t, void (*function)(TNode *)) {
 	if (!isEmpty(t)) {
 		inOrder(t->left, function);
 		function(t);
@@ -125,7 +121,7 @@ void inOrder(BinTree t, void (*function)(TNode *)) {
 	}
 }
 
-void postOrder(BinTree t, void (*function)(TNode *)) {
+void postOrder(TNode* t, void (*function)(TNode *)) {
 	if (!isEmpty(t)) {
 		postOrder(t->left, function);
 		postOrder(t->right, function);
@@ -133,7 +129,7 @@ void postOrder(BinTree t, void (*function)(TNode *)) {
 	}
 }
 
-void freeTree(BinTree t) {
+void freeTree(TNode* t) {
 	if (isEmpty(t)) {
 		return;
 	}

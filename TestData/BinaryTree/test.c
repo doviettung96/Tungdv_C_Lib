@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 void main(){
-	BinTree t = NULL;
+	TNode *t = NULL;
 	// printf("%p\n", t);
 	addToLeftMost(&t, 1);
 	addToLeftMost(&t, 2);
