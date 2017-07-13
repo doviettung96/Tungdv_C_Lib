@@ -15,14 +15,22 @@ Do the same but instead of Algorithm, jump into DataStructure folder and type "m
 then jump to TestData/List (or Stack or Queue) type "make". Finally type "./test"
 
 # Helpful information
-By typing make, you will run the default command in "makefile". 
-For library, ex: Algorithm, make will build a library *.a,
+- By typing make, you will run the default command in "makefile". 
+- For library, ex: Algorithm, make will build a library *.a,
 copy to Implementation and copy the header files to Header.
-In the root directory, "make" will compile test.c with all including library 
+- In the root directory, "make" will compile test.c with all including library 
 into an executable file test.
 
 # Pointer
-Pointer is address, it point to address of 1 variable
-Only use *p = 10 or *p = a when *p = (int *)malloc(sizeof(int));
+
+## Warning 
+- Pointer is address, it point to address of 1 variable
+- Only use *p = 10 or *p = a when *p = (int *)malloc(sizeof(int));
 or you could just: p = &a;
-Otherwise, error will occur (segmentation fault- core dumpted).
+- Otherwise, error will occur (segmentation fault- core dumpted).
+
+## Pointer and value
+- Pass pointer to a function, inside that function, change the value, after function finish, value changed.
+- Pass pointer to a function, inside that function, change address of the pointer, after function finish, nothing changed. To change address of pointer passed to a function, use pointer to pointer (**).
+
+*** NULL pointer != uninitialized pointer
