@@ -32,13 +32,13 @@ TNode* getRightChild(TNode *t) {
 	return t->right;
 }
 
-void insert(TNode** t, int value) {
+void insertNode(TNode** t, int value) {
 	if (isEmpty(*t)) {
 		*t = initTNode(value);
-	} else if ((*t)->value < value) {
-		insert(&(*t)->left, value);
 	} else if ((*t)->value > value) {
-		insert(&(*t)->right, value);
+		insertNode(&(*t)->left, value);
+	} else if ((*t)->value < value) {
+		insertNode(&(*t)->right, value);
 	} else {
 		printf("The node is already in the tree\n");
 	}
@@ -57,7 +57,7 @@ TNode* search(TNode *t, int key) {
 
 int deleteMin(TNode** t) {
 	if (isEmpty(getLeftChild(*t))) {
-	int value = (*t)->value;
+		int value = (*t)->value;
 		*t = (*t)->right;
 		return value;
 	}
