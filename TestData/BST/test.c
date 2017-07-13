@@ -3,12 +3,15 @@
 
 void main(){
 	TNode *t = NULL;
-	insertNode(&t, 3);
-	insertNode(&t, 2);
-	insertNode(&t, 1);
-	insertNode(&t, 4);
+	insertTNode(&t, 3);
+	insertTNode(&t, 2);
+	insertTNode(&t, 1);
+	insertTNode(&t, 4);
 	printf("Depth of %d = %d\n",getRightChild(t)->value, depth(t, getRightChild(t)));
 	printf("Height of root = %d\n", height(t) - 1);
+	printf("Search %d\n", search(t, 2)->value);
+	deleteTNode(&t, 1);
+	
 	preOrder(t, displayTNode);
 	printf("\n");
 	inOrder(t, displayTNode);

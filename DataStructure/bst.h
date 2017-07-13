@@ -9,10 +9,10 @@ int isEmpty(TNode* t);
 int isLeaf(TNode* t);
 TNode* getLeftChild(TNode* t);
 TNode* getRightChild(TNode* t);
-void insertNode(TNode** t, int value);
+void insertTNode(TNode** t, int value);
 TNode* search(TNode *t, int key);
 int deleteMin(TNode** t);
-void deleteNode(TNode** t, int key);
+void deleteTNode(TNode** t, int key);
 int countNodes(TNode* t);
 int countLeaves(TNode* t);
 int height(TNode* node); // number of edges on the longest path from the node to a leaf, also height of a tree = height of root node

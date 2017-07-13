@@ -32,13 +32,13 @@ TNode* getRightChild(TNode *t) {
 	return t->right;
 }
 
-void insertNode(TNode** t, int value) {
+void insertTNode(TNode** t, int value) {
 	if (isEmpty(*t)) {
 		*t = initTNode(value);
 	} else if ((*t)->value > value) {
-		insertNode(&(*t)->left, value);
+		insertTNode(&(*t)->left, value);
 	} else if ((*t)->value < value) {
-		insertNode(&(*t)->right, value);
+		insertTNode(&(*t)->right, value);
 	} else {
 		printf("The node is already in the tree\n");
 	}
@@ -64,15 +64,15 @@ int deleteMin(TNode** t) {
 	return deleteMin(&(*t)->left);
 }
 
-void deleteNode(TNode** t, int key) {
+void deleteTNode(TNode** t, int key) {
 	if (isEmpty(*t)) {
 		printf("The node is already NULL, no need to delete\n");
 	} else if ((*t)->value > key) {
-		deleteNode(&(*t)->left, key);
+		deleteTNode(&(*t)->left, key);
 	} else if ((*t)->value < key) {
-		deleteNode(&(*t)->right, key);
+		deleteTNode(&(*t)->right, key);
 	} else if (isLeaf(*t)) {
-		free(*t);
+		*t = NULL;
 	} else if (isEmpty(getLeftChild(*t))) {
 		*t = (*t)->right; // has only right node
 	} else if (isEmpty(getRightChild(*t))) {
