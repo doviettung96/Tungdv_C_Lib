@@ -7,6 +7,9 @@ void main(){
 	insertTNode(&t, 2);
 	insertTNode(&t, 1);
 	insertTNode(&t, 4);
+	insertTNode(&t, 6);
+	insertTNode(&t, 5);
+	printf("Balance = %d\n", getBalance(t));
 	printf("Depth of %d = %d\n",getRightChild(t)->value, depth(t, getRightChild(t)));
 	printf("Height of root = %d\n", height(t) - 1);
 	printf("Search %d\n", search(t, 2)->value);
