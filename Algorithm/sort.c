@@ -1,61 +1,56 @@
 #include <stdio.h>
 #include "sort.h"
 
-void selectionSort(int array[], int length){
+void selectionSort(int array[], int length) {
 	int minIndex;
-	for(int elementIndex = 0; elementIndex < length; ++elementIndex){
-		minIndex = findMinElement(array, elementIndex, length);
-		swap(&array[elementIndex], &array[minIndex]);
+	for (int i = 0; i < length; ++i) {
+		minIndex = findMinElement(array, i, length);
+		swap(&array[i], &array[minIndex]);
 	}
 }
 
-void insertionSort(int array[], int length){
+void insertionSort(int array[], int length) {
 	int currentElement;
-	for(int currentIndex = 1; currentIndex < length; ++currentIndex){
-		int offset = 0;
-		currentElement = array[currentIndex];
+	int i, j;
+	for (i = 1; i < length; ++i) {
+		currentElement = array[i];
+		j = i - 1;
 
-		// calculate the offset = how long the sub-array shifted is
-		for(int reverseIndex = currentIndex - 1; reverseIndex >= 0; --reverseIndex){
-			if(currentElement < array[reverseIndex]){
-				offset++;
-			}else{
-				break;
-			}
+		while (j >= 0 && array[j] > currentElement) {
+			array[j + 1] = array[j];
+			--j;
 		}
-
-		for(int swapIndex = currentIndex; swapIndex > currentIndex - offset; --swapIndex){
-			swap(&array[swapIndex], &array[swapIndex - 1]);
-		}
+		array[j + 1] = currentElement;
 	}
 }
 
-void bubbleSort(int array[], int length){
-	for(int i = 0; i < length - 1 ; ++i){
-		for(int j = i; j < length; ++j){
-			if(array[j + 1] < array[j])
+void bubbleSort(int array[], int length) {
+	for (int i = 0; i < length - 1 ; ++i) {
+		for (int j = i; j < length; ++j) {
+			if (array[j + 1] < array[j])
 				swap(&array[j + 1], &array[j]);
 		}
 	}
 }
 
-void quickSort(int array[], int low, int high){
-	int pivot = partition(array, low, high);
-	// if(pivot != low)
-		// quickSort(array, low, pivot);
-	// if(pivot != high - 1)
-	// 	quickSort(array, pivot + 1, high);
+void quickSort(int array[], int low, int high) {
+	if (low < high) {
+		int pivot = partition(array, low, high);
+		quickSort(array, low, pivot - 1);
+		quickSort(array, pivot + 1, high);
+	}
 }
 
-int partition(int array[], int low, int high){
-	int pivot = low;
-	for(int i = low; i <= high; ++i){
-		if(array[i] < array[pivot]){
-			for(int j = i - 1; j >= low; --j){
-				swap(&array[j], &array[j + 1]);
-			}
-			pivot++;
+int partition(int array[], int low, int high) {
+	int pivot = array[high];
+	int j = low;
+	for (int i = low; i < high; ++i) {
+		if (array[i] <= pivot) {
+			if (i != j)
+				swap(&array[i], &array[j]); // no need to swap duplicate
+			++j;
 		}
 	}
-	return pivot;
+	swap(&array[high], &array[j]);
+	return j;
 }
