@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "sort.h"
 
+// selection sort doesn't assign much, memory efficient
+// only take much time to compare, find min
 void selectionSort(int array[], int length) {
 	int minIndex;
 	for (int i = 0; i < length; ++i) {
@@ -9,6 +11,8 @@ void selectionSort(int array[], int length) {
 	}
 }
 
+// doesn't take much time to compare, but much time for assign
+// good when the array is nearly sorted
 void insertionSort(int array[], int length) {
 	int currentElement;
 	int i, j;
@@ -33,6 +37,7 @@ void bubbleSort(int array[], int length) {
 	}
 }
 
+// fast if pivot is in middle O(nlogn)
 void quickSort(int array[], int low, int high) {
 	if (low < high) {
 		int pivot = partition(array, low, high);
