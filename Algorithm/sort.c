@@ -59,3 +59,29 @@ int partition(int array[], int low, int high) {
 	swap(&array[high], &array[j]);
 	return j;
 }
+
+void heapSort(int array[], int length) {
+	for (int i = length / 2 - 1; i >= 0; --i)
+		heapify(array, length, i); // call heapify from bottom to root to build a heap tree
+	
+	for (int i = length - 1; i >= 0; --i) {
+		swap(&array[0], &array[i]); // move the root = largest to the end
+		heapify(array, i, 0); // heapify the remaining heap tree
+	}
+
+}
+
+void heapify(int array[], int length, int root) {
+	int left = 2 * root + 1;
+	int right = 2 * root + 2;
+	int largest = root;
+
+	if (left < length && array[left] > array[largest])
+		largest = left;
+	if (right < length && array[right] > array[largest])
+		largest = right;
+	if (largest != root) {
+		swap(&array[largest], &array[root]);
+		heapify(array, length , largest);
+	}
+}

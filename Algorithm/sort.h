@@ -34,3 +34,16 @@ void quickSort(int array[], int low, int high);
  * @return       [description]
  */
 int partition(int array[], int low, int high);
+/**
+ * [heapify description]       heapify from a root index to all of its children
+ * @param array  [description]
+ * @param length [description]
+ * @param root   [description]
+ */
+void heapify(int array[], int length, int root);
+/**
+ * [heapSort description]      sort an array using heap sort 
+ * @param array  [description]
+ * @param length [description]
+ */
+void heapSort(int array[], int length);

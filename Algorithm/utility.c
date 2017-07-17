@@ -19,11 +19,3 @@ int findMinElement(int array[], int start, int stop){
 	}
 	return minIndex;
 }
-
-int getLength(int array[]){
-	int index = 0;
-	while(&array[index] != NULL){
-		index++;
-	}
-	return index;
-}

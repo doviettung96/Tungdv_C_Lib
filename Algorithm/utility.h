@@ -11,9 +11,3 @@ extern void swap(int *a, int *b);
  * @return             [description] min element with the minumum value
  */
 extern int findMinElement(int array[], int start, int stop);
-/**
- * [getLength description] get number of elements of an array
- * @param  array [description] input array of numbers
- * @return       [description] length
- */
-extern int getLength(int array[]);
