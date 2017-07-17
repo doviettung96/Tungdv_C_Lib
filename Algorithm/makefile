@@ -4,7 +4,7 @@ OUTPUTDIR = ../Implementation/
 
 all: libalgorithm.a copy_header
 
-OBJS = utility.o sort.o 
+OBJS = utility.o sort.o dynamic-programming.o
 
 libalgorithm.a: $(OBJS)
 	ar ru $(OUTPUTDIR)libalgorithm.a $(OBJS)
