@@ -3,25 +3,33 @@
 #include <stdlib.h>
 
 
-int* calFactorialArr() {
-	int maxFactorial = MAX_TEST * 2;
-	int *result = (int *)malloc(sizeof(int) * maxFactorial);
-	*result = 1;
-
-	for (int i = 1; i < maxFactorial; ++i) {
-		*(result + i) = *(result + i - 1) * i;
+element_type** calCombinationArr(int maxN, int maxK) {
+	int i, j;
+	element_type **combinationArr = (element_type **)malloc(sizeof(element_type *) * maxN);
+	for (i = 0; i < maxN; ++i) {
+		combinationArr[i] = (element_type *)malloc(sizeof(element_type) * maxK);
+		for (j = 0; j <= min(i, maxK - 1); ++j) {
+			if (j == 0 || j == i)
+				combinationArr[i][j] = 1;
+			else {
+				combinationArr[i][j] = combinationArr[i - 1][j - 1] + combinationArr[i - 1][j];
+			}
+		}
 	}
-
-	return result;
+	return combinationArr;
 }
 
 // C k of n
-int calCombination(int factorialArr[], int k, int n) {
-	return factorialArr[n] / (factorialArr[k] * factorialArr[n - k]);
+element_type findCombination(element_type **combinationArr, int k, int n) {
+	return combinationArr[n][k];
 }
 
 // perfect sequence of digits which has digit either in non-decreasing or non-increasing order
-int countPerfectSequence(int factorialArr[], int n) {
-	int combination = calCombination(factorialArr, n, 2 * n - 1);
-	return 2 * combination - n;
+element_type countPerfectSequence(element_type **combinationArr, int n) {
+	int combination = findCombination(combinationArr, n, 2 * n - 1);
+	return (2 * combination - n) % MAX_MOD;
+}
+
+element_type min(element_type a, element_type b) {
+	return (a < b) ? a : b;
 }
