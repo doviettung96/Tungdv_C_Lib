@@ -30,6 +30,6 @@ element_type countPerfectSequence(element_type **combinationArr, int n) {
 	return (2 * combination - n) % MAX_MOD;
 }
 
-element_type min(element_type a, element_type b) {
+int min(int a, int b) {
 	return (a < b) ? a : b;
 }
