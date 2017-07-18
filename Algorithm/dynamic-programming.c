@@ -33,3 +33,16 @@ element_type countPerfectSequence(element_type **combinationArr, int n) {
 int min(int a, int b) {
 	return (a < b) ? a : b;
 }
+
+int *nonDecreasingDigits() {
+	int max = 10;
+	int *state = (int *)malloc(sizeof(int) * max);
+	state[0] = 0;
+	state[1] = 9;
+	for (int i = 2; i <= max - 1; ++i) {
+		for (int j = 1; j <= state[i - 1]; ++j) {
+			state[i] +=  j;
+		}
+	}
+	return state;
+}

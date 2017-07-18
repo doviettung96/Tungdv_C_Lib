@@ -8,7 +8,8 @@ void main(){
 	// insertionSort(a, length);
 	// bubbleSort(a, length);
 	// quickSort(a, 0, length - 1);
-	heapSort(a, length);
+	// heapSort(a, length);
+	mergeSort(a, 0, length - 1);
 	for(int i = 0; i < length; ++i){
 		printf("%d ", a[i]);
 	}

@@ -47,3 +47,18 @@ void heapify(int array[], int length, int root);
  * @param length [description]
  */
 void heapSort(int array[], int length);
+/**
+ * [merge description]         divide 1 array into 2 halves and compare then merge them together 
+ * @param array  [description]
+ * @param left   [description]
+ * @param middle [description]
+ * @param right  [description]
+ */
+void merge(int array[], int left, int middle, int right);
+/**
+ * [mergeSort description]     sort an array 
+ * @param array [description]
+ * @param left  [description]
+ * @param right [description]
+ */
+void mergeSort(int array[], int left, int right);

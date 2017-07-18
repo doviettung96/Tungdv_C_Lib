@@ -7,3 +7,4 @@ element_type** calCombinationArr(int maxN, int maxK);
 element_type findCombination(element_type **combinationArr, int k, int n);
 element_type countPerfectSequence(element_type **combinationArr, int n);
 int min(int a, int b);
+int *nonDecreasingDigits();
