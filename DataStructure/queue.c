@@ -11,7 +11,7 @@ Queue* initQueue(){
 
 void enqueue(Queue *q, int value){
 	Node *newNode = initNode(value);
-	if(isEmpty(*q)){
+	if(isQEmpty(*q)){
 		q->head = newNode;
 		q->tail = newNode;
 	}else{
@@ -21,7 +21,7 @@ void enqueue(Queue *q, int value){
 }
 
 Node* dequeue(Queue *q){
-	if(isEmpty(*q)){
+	if(isQEmpty(*q)){
 		printf("Queue is empty\n");
 		return NULL;
 	}else{
@@ -34,25 +34,25 @@ Node* dequeue(Queue *q){
 }
 
 extern Node* getTail(Queue q){
-	if(isEmpty(q)){
+	if(isQEmpty(q)){
 		printf("Queue is empty\n");
 	}
 	return q.tail;
 }
 
 extern Node* getHead(Queue q){
-	if(isEmpty(q)){
+	if(isQEmpty(q)){
 		printf("Queue is empty\n");
 	}
 	return q.head;
 }
 
-int isEmpty(Queue q){
+int isQEmpty(Queue q){
 	return q.head == NULL;
 }
 
 void freeQueue(Queue *q){
-	while(!isEmpty(*q)){
+	while(!isQEmpty(*q)){
 		dequeue(q);
 	}
 }

@@ -1,3 +1,6 @@
+#ifndef _QUEUE_
+#define _QUEUE_
+
 #include "node.h"
 
 typedef struct{
@@ -10,5 +13,7 @@ void enqueue(Queue *q, int value);
 Node* dequeue(Queue *q);
 extern Node* getTail(Queue q);
 extern Node* getHead(Queue q);
-int isEmpty(Queue q);
+int isQEmpty(Queue q);
 void freeQueue(Queue *q);
+
+#endif

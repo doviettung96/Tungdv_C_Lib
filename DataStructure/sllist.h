@@ -1,3 +1,6 @@
+#ifndef _LIST_
+#define _LIST_
+
 #include "node.h"
 
 typedef struct{
@@ -15,3 +18,5 @@ void deleteNode(sllist *list, int position);
 void traverse(sllist list, void (*function)(Node *));
 int getLength(sllist list);
 void freeList(sllist *list);
+
+#endif

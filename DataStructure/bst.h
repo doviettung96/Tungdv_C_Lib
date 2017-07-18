@@ -1,3 +1,6 @@
+#ifndef _TNODE_
+#define _TNODE_
+
 typedef struct TNode {
 	int value;
 	struct TNode* left;
@@ -23,3 +26,4 @@ void inOrder(TNode* t, void (*function)(TNode *));
 void postOrder(TNode* t, void (*function)(TNode *));
 void freeTree(TNode* t);
 
+#endif
