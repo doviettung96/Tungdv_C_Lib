@@ -1,5 +1,4 @@
 #include "graph.h"
-#include "queue.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -39,6 +38,39 @@ void DFS(Graph g, int vertex) {
 	printf("\n");
 }
 
+void topologicalSortUtil(Graph g, int vertex, int visited[], Stack *s) {
+	visited[vertex] = 1;
+
+	for (int i = 0; i < getLength(g.adjLists[vertex]); ++i) {
+		Node *node = getNode(g.adjLists[vertex], i);
+		if (visited[node->value] == 0)
+			topologicalSortUtil(g, node->value, visited, s);
+	}
+
+	push(s, vertex);
+}
+
+void topologicalSort(Graph g) {
+	int visited[g.vertices];
+	Stack *s = initStack();
+
+	for (int i = 0; i < g.vertices; ++i) {
+		visited[i] = 0;
+	}
+	printf("Topological sort order: \n");
+	for (int i = 0; i < g.vertices; ++i) {
+		if (visited[i] == 0)
+			topologicalSortUtil(g, i, visited, s);
+	}
+
+	while (!isEmpty(*s)) {
+		printf("%d ", pop(s)->value);
+	}
+
+	printf("\n");
+
+}
+
 void BFS(Graph g, int vertex) {
 	int visited[g.vertices];
 	for (int i = 0; i < g.vertices; ++i) {
@@ -58,7 +90,7 @@ void BFS(Graph g, int vertex) {
 		// enqueue all adjacent nodes of the current node
 		for (int i = 0; i < getLength(g.adjLists[currentNode->value]); ++i) {
 			Node *adjToCurrent = getNode(g.adjLists[currentNode->value], i);
-			if (visited[adjToCurrent->value] == 0){
+			if (visited[adjToCurrent->value] == 0) {
 				visited[adjToCurrent->value] = 1;
 				enqueue(q, adjToCurrent->value);
 			}
